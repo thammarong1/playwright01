@@ -1,25 +1,25 @@
 
 1. install <br>
-1.1 npm init /n
-1.2 npm init playwright@latest
-1.3 npm install
-1.4 npm install --save @types/node
-1.5 install dotenv
-1.5.1 ถ้าใช้ mac ใช้คำสั่งนี้    npm install --save-dev dotenv
-1.5.2 ถ้าใช้ windown ใช้คำสั่งนี้  npm install cross-env --save-dev
-1.6 npm install --save-dev typescript
-1.7 npm install --save-dev @faker-js/faker
-1.8 npm install --save --dev rimraf
-1.9 npm install --save --dev crypto-js moment
-1.10 npm i csv-parse --save --dev
+1.1 npm init <br>
+1.2 npm init playwright@latest <br>
+1.3 npm install <br>
+1.4 npm install --save @types/node <br>
+1.5 install dotenv <br>
+1.5.1 ถ้าใช้ mac ใช้คำสั่งนี้    npm install --save-dev dotenv <br>
+1.5.2 ถ้าใช้ windown ใช้คำสั่งนี้  npm install cross-env --save-dev <br>
+1.6 npm install --save-dev typescript <br>
+1.7 npm install --save-dev @faker-js/faker <br>
+1.8 npm install --save --dev rimraf <br>
+1.9 npm install --save --dev crypto-js moment <br>
+1.10 npm i csv-parse --save --dev <br><br> 
 
-2. intall allure-report
-npm install --save-dev @playwright/test allure-playwright
-npm i allure-playwright
-npm i -D allure-commandline
+2. intall allure-report <br>
+npm install --save-dev @playwright/test allure-playwright <br>
+npm i allure-playwright <br>
+npm i -D allure-commandline <br><br>
 
-3. run
-1 npm run sit:run
-2 npm run sit:account
+3. run <br>
+1 npm run sit:run <br>
+2 npm run sit:account <br>
 
 
