@@ -1,6 +1,6 @@
 
-1. install
-1.1 npm init
+1. install /n
+1.1 npm init /n
 1.2 npm init playwright@latest
 1.3 npm install
 1.4 npm install --save @types/node
