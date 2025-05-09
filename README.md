@@ -1,5 +1,5 @@
 
-1. install \n
+1. install <br>
 1.1 npm init /n
 1.2 npm init playwright@latest
 1.3 npm install
