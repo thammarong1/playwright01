@@ -17,5 +17,8 @@ npm install --save-dev @playwright/test allure-playwright <br>
 npm i allure-playwright <br>
 npm i -D allure-commandline <br><br>
 
+3. run <br>
+npm run sit_headed <br>
+
 
 
