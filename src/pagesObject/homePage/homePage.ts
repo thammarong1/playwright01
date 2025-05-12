@@ -3,11 +3,7 @@ import { basePage } from "../../helpers/UI/basePage";
 import dotenv from "dotenv";
 dotenv.config({ path: `.env.${process.env.ENV || 'sit'}` }); // โหลด environment
 
-/**
- * getByRole('button', { name: 'Toggle navigation' })
- * getByText('ระบบงาน')
- * getByText('agent')
- */
+
 
 export class homePage extends basePage {
   constructor(page: Page) {
@@ -15,8 +11,26 @@ export class homePage extends basePage {
   }
 
   //** Step */
+  async gotoLandingHomePage() {
+    await this.page.goto(`${process.env.URL_HomePage}`)
+  }
+
+  async clickLogin() {
+    await this.page.getByRole('button', { name: 'profile-image' }).click({ force: true });
+  }
+
   async homePageDisplayLottery() {
-    await this.page.getByTestId('series-lottery-lists-title').waitFor({ state: 'visible', timeout:3000 });
+    // popup confirm (บางครั้งเจอเมื่อเข้าสู่หน้า home page)
+    const confirmButton = this.page.getByTestId('dialog-modal-confirm-button') // button popup confirm
+    if (await confirmButton.isVisible({ timeout: 3000 })) {
+      await confirmButton.click()
+      console.log('popUp homePage แสดง ทำการปิดเรียบร้อย')
+    } else {
+      console.log('ไม่มี popUp homePage แสดง')
+    }
+
+    await this.page.getByTestId('desktop-navbar').getByRole('link', { name: 'lotteryplus' }).waitFor({ state: 'visible', timeout: 3000 }); // banner ลอตเตอรี่พลัส
+
   }
 
   async clickMenu_TopUp() {
@@ -27,24 +41,4 @@ export class homePage extends basePage {
     await this.page.getByTestId('option-modal-confirm-button').click({ force: true });
   }
 
-
-  // async displayListMenu() {       //รอจนเจอคำว่า "ระบบงาน" แสดง)
-  //   //await expect(this.page.getByText('ระบบงาน')).toBeVisible;
-  //   await this.page.getByText('ระบบงาน', {exact : true}).waitFor({state: 'visible', timeout: 10000});
-  // }
-
-  // async clickMenuList(menuName: string) {
-  //   await this.page.waitForLoadState('networkidle'); // รอให้หน้าเว็บโหลดเสร็จ
-  //   await this.page.getByText('agent', { exact: true }).scrollIntoViewIfNeeded(); // เลื่อนเมนูมาในมุมมองที่มองเห็น
-  //   await this.page.getByText('agent', { exact: true }).waitFor({ state: 'visible', timeout: 10000 }); // รอให้เจอคำว่า 'agent' 
-  //   await this.page.getByText(menuName, { exact: true }).click(); // ใส่ { exact: true } บอกว่าสนใจหาคำว่า agent แบบเป๊ะๆ เช็คเป็นพิมพ์เล็ก พิมพ์ใหญ่
-  // }
-
-  // async clickUserAgent(text: string) {
-  //   await this.page.locator('#ulSystem55').getByText(text).click({ force: true })
-  // }
 }
-
-
-//getByTestId('series-lottery-lists-title')
-//getByTestId('nok-more-nok-cash-icon')
